@@ -1,6 +1,7 @@
 import React from 'react';
 import LabCard from '../components/labCard';
 import Doc from '../assets/doc.jpg'
+import { toast } from 'react-hot-toast';
 
 const labs = [
   {
@@ -42,6 +43,11 @@ const labs = [
 ];
 
 const LabPage = () => {
+
+  const handleAddToCart = () => {
+    toast.success(`${title} added to cart`);
+  };
+
   return (
     <div className="w-full px-4 py-10">
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-6">
@@ -54,7 +60,9 @@ const LabPage = () => {
               <span className="line-through text-gray-400">₹180</span>
               <span className="text-[#2A5F72] font-semibold">₹120</span>
             </div>
-            <button className="mt-6 bg-[#2A5F72] text-white font-semibold text-sm py-2 px-4 rounded-lg flex items-center gap-2">
+            <button onClick={()=>{
+              toast.success(`Fever Package added to cart`);
+            }} className="mt-6 bg-[#2A5F72] text-white font-semibold text-sm py-2 px-4 rounded-lg flex items-center gap-2 cursor-pointer">
               Add to cart <span className="text-xl leading-none">+</span>
             </button>
           </div>
