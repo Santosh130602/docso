@@ -1,6 +1,11 @@
 import React from 'react';
+import { toast } from 'react-hot-toast';
 
 const Card = ({ title, testsIncluded, originalPrice, discountedPrice, width = 'w-64 md:w-72' }) => {
+  const handleAddToCart = () => {
+    toast.success(`${title} added to cart`);
+  };
+
   return (
     <div className={`bg-white text-left rounded-2xl shadow-md p-6 ${width}`}>
       <h2 className="text-lg font-bold text-gray-900">{title}</h2>
@@ -9,7 +14,7 @@ const Card = ({ title, testsIncluded, originalPrice, discountedPrice, width = 'w
         <span className="line-through text-gray-400">₹{originalPrice}</span>
         <span className="text-[#2A5F72] font-semibold">₹{discountedPrice}</span>
       </div>
-      <button className="mt-6 bg-[#2A5F72] text-white font-semibold text-sm py-2 px-4 rounded-lg flex items-center gap-2">
+      <button  onClick={handleAddToCart}  className="mt-6 bg-[#2A5F72] text-white font-semibold text-sm py-2 px-4 rounded-lg flex items-center gap-2 cursor-pointer">
         Add to cart <span className="text-xl leading-none">+</span>
       </button>
     </div>

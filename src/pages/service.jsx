@@ -4,10 +4,12 @@ import ServicImg from "../assets/servic.jpg";
 import SearchBar from '../components/search';
 import FeverPackageGrid from '../components/favPakage';
 import Footer from '../components/Footer';
+import { Toaster } from 'react-hot-toast'
 
 const Service = () => {
   return (
     <div>
+      <Toaster position="top-center" reverseOrder={false} />
       <Header />
 
       <div
